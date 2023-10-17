@@ -1,32 +1,36 @@
-package rest;
+package com.example.workintech.Sprint17D2.rest;
 
 import jakarta.annotation.PostConstruct;
-import model.Developer;
-import model.Experience;
+import com.example.workintech.Sprint17D2.model.Developer;
+import com.example.workintech.Sprint17D2.model.Experience;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import tax.Taxable;
+import com.example.workintech.Sprint17D2.tax.Taxable;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/workintech/developers")
+@RequestMapping("/developers")
 public class DevelopController {
     private Map<Integer, Developer> developers;
     private Taxable developerTax;
 
-    public DevelopController(Taxable developerTax) {
-        this.developerTax = developerTax;
-    }
 
     @PostConstruct
     public void init() {
         developers = new HashMap<>();
     }
 
+    @Autowired
+    public DevelopController(Taxable developerTax) {
+        this.developerTax = developerTax;
+    }
+
     @GetMapping("/")
     public List<Developer> getAllDevelopers() {
+        System.out.println("Bütün developerlar aşağıdadır :");
         return developers.values().stream().toList();
     }
 

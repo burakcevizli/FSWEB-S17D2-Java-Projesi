@@ -1,4 +1,4 @@
-package model;
+package com.example.workintech.Sprint17D2.model;
 
 public class Developer {
     private int id;

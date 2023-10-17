@@ -1,4 +1,4 @@
-package tax;
+package com.example.workintech.Sprint17D2.tax;
 
 import org.springframework.stereotype.Component;
 
